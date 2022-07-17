@@ -1,9 +1,9 @@
-credit-card-api allows users to operate on three functionalities:
+# credit-card-api allows users to operate on three functionalities:
 1. finding all credit card details
 2. finding a credit card detail by its card number
 3. creating a new credit card detail
 
-GET: /creditCards
+### GET: /creditCards
 Retreives a List of all credit cards stored in the datbase
 Example url: api/v1/crediCards
 Returns:
@@ -25,7 +25,7 @@ Returns:
   ...
 ]
 
-GET: /creditCards{cardNumber}
+### GET: /creditCards{cardNumber}
 Retreives a List of all credit cards stored in the datbase
 Example url: api/v1/crediCard/4900120066543378
 Returns:
@@ -37,7 +37,7 @@ Returns:
       "expiryDate": "2022-11-11"
   }
   
-Post: /creditCard
+### POST: /creditCard
 Saves a CreditCard entity into the database
 Example url: api/v1/creditCard
 
