@@ -9,7 +9,7 @@ import java.util.Collection;
 public interface CreditCardService {
     CreditCard getCreditCard(String cardNumber) throws CardDoesNotExistException;
 
-    Collection<CreditCard> getCreditCards();
+    Collection<CreditCard> getAllCreditCards();
 
     CreditCard saveCreditCard(CreditCard creditCard) throws CardNumberExistsExeption;
 }

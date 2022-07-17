@@ -14,25 +14,25 @@ import java.util.Collection;
 @RequestMapping(path = "api/v1")
 public class CreditCardController {
 
-    private CreditCardMapper cardMapper;
-
-    @GetMapping(path="/creditCards")
-    public ResponseEntity<Collection<CreditCardResponseDto>> findAllCreditCards() {
-
-        return ResponseEntity.ok().body(// collection of all credit cards);
-    }
-
-
-    @GetMapping(path="/creditCard/{cardNumber}")
-    public ResponseEntity<CreditCardResponseDto> findCreditCardByCardNumber(
-            @PathVariable("cardNumber") String cardNumber) {
-
-        return ResponseEntity.ok().body(// found credit card);
-    }
-
-    @PostMapping(path="/creditCard")
-    public ResponseEntity<CreditCardResponseDto> createCreditCard(@RequestBody CreditCardRequestDto requestDto) {
-
-        return ResponseEntity.ok().body(// credit card entity);
-    }
+//    private CreditCardMapper cardMapper;
+//
+//    @GetMapping(path="/creditCards")
+//    public ResponseEntity<Collection<CreditCardResponseDto>> findAllCreditCards() {
+//
+//        return ResponseEntity.ok().body(// collection of all credit cards);
+//    }
+//
+//
+//    @GetMapping(path="/creditCard/{cardNumber}")
+//    public ResponseEntity<CreditCardResponseDto> findCreditCardByCardNumber(
+//            @PathVariable("cardNumber") String cardNumber) {
+//
+//        return ResponseEntity.ok().body(// found credit card);
+//    }
+//
+//    @PostMapping(path="/creditCard")
+//    public ResponseEntity<CreditCardResponseDto> createCreditCard(@RequestBody CreditCardRequestDto requestDto) {
+//
+//        return ResponseEntity.ok().body(// credit card entity);
+//    }
 }
