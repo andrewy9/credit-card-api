@@ -1,13 +1,18 @@
 # credit-card-api
 credit card api for tower's technical assignment
 
-For this assignment, I was not able to finish all of the required components due to lack of time.
+For this assignment, I created a three sets of apis which does the following.
+1. Retrieve all credit card data stored in the server.
+2. Retrieve a specific card data stored in the server, queried by its card number.
+3. Create and store a new card data in the server.
+
+However, I was not able to finish all of the required components due to lack of time.
 
 1. Security
 2. Integration Testing
 3. Write more verbose api documentatoin for the customer
 
-One more thing to note is that there is a validation error to do with LocalDate which is causing the appliation's post requets to fail. I wasn't able to fix this issue in time.
+One more thing to note is that there is a validation error to do with LocalDate which is causing the appliation's post requets to fail. I wasn't able to fix this issue in time given.
 
 ## Hind sight
 1. I believe I have spent too much time on seraching for the correct regex patern. It would be good for me to learn more about regex sooner than later.
