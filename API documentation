@@ -1,0 +1,59 @@
+credit-card-api allows users to operate on three functionalities:
+1. finding all credit card details
+2. finding a credit card detail by its card number
+3. creating a new credit card detail
+
+GET: /creditCards
+Retreives a List of all credit cards stored in the datbase
+Example url: api/v1/crediCards
+Returns:
+[
+  {
+      "id": 23,
+      "fullName": "John Doe",
+      "cardNumber": "123123123123123",
+      "cvc": 241,
+      "expiryDate": "2022-11-11"
+  },
+  {
+    "id": 24,
+    "fullName": "Samantha Doe",
+    "cardNumber": "2222555588889999",
+    "cvc": 2231,
+    "expiryDate": "2022-10-8"
+  },
+  ...
+]
+
+GET: /creditCards{cardNumber}
+Retreives a List of all credit cards stored in the datbase
+Example url: api/v1/crediCard/4900120066543378
+Returns:
+  {   
+      "id": 23,
+      "fullName": "John Doe",
+      "cardNumber": "4900120066543378",
+      "cvc": 241,
+      "expiryDate": "2022-11-11"
+  }
+  
+Post: /creditCard
+Saves a CreditCard entity into the database
+Example url: api/v1/creditCard
+
+Request Body:
+  {
+      "fullName": "John Doe",
+      "cardNumber": "4900120066543378",
+      "cvc": 241,
+      "expiryDate": "2022-11-11"
+  }
+
+Returns:
+  {
+      "id": 23,
+      "fullName": "John Doe",
+      "cardNumber": "4900120066543378",
+      "cvc": 241,
+      "expiryDate": "2022-11-11"
+  }
