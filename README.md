@@ -16,5 +16,6 @@ One more thing to note is that there is a validation error to do with LocalDate 
 4. Wasn't sure what to do with the limits on the card number. In NZ, we seem to use 16 numbers with 3 numbers for cvc number, but it wasn't mentioned in the assingment criteria (while name limit was). Have decided to go with
    not adding the character limit but it would have been better to just ask.
 5. Forgot to add string trimmer to prevent unwanted empty spaces for our values.
+6. Should have added `@Column(unique = true)` for CreditCard cardNumber property
 
 If I were to do this again, I would have asked a bit more questions about the specifics, be more thoughtful about the time contraint and create more MVP product.
