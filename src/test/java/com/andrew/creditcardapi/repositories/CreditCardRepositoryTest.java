@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-
+//Will need to connect to (preferably in memory) database such as h2
 @DataJpaTest
 class CreditCardRepositoryTest {
 
@@ -28,7 +28,7 @@ class CreditCardRepositoryTest {
     @Test
     void canFindByCardNumber() {
         //given
-        String cardNumber = "1111222233334444";
+        String cardNumber = "1111222233335555";
         CreditCard creditCard = new CreditCard(
                 10L,
                 "John Snow",

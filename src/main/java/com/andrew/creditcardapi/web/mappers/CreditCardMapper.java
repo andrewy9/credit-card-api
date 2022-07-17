@@ -3,9 +3,11 @@ package com.andrew.creditcardapi.web.mappers;
 import com.andrew.creditcardapi.dto.CreditCardRequestDto;
 import com.andrew.creditcardapi.dto.CreditCardResponseDto;
 import com.andrew.creditcardapi.models.CreditCard;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Component
 public class CreditCardMapper {
     public CreditCardResponseDto toResponseDto(CreditCard creditCard) {
         Long id = creditCard.getId();

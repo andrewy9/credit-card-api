@@ -8,7 +8,9 @@ import com.andrew.creditcardapi.models.CreditCard;
 import com.andrew.creditcardapi.services.CreditCardService;
 import com.andrew.creditcardapi.web.mappers.CreditCardMapper;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -23,12 +25,13 @@ import java.util.stream.Collectors;
 
 @Validated
 @RestController
-@AllArgsConstructor
 @RequiredArgsConstructor
 @RequestMapping(path = "api/v1")
 public class CreditCardController {
 
     private final CreditCardService creditCardService;
+
+    @Autowired
     private CreditCardMapper cardMapper;
 
     @GetMapping(path="/creditCards")

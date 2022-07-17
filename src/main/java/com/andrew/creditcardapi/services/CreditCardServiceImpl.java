@@ -4,6 +4,7 @@ import com.andrew.creditcardapi.exceptions.CardDoesNotExistException;
 import com.andrew.creditcardapi.exceptions.CardNumberExistsExeption;
 import com.andrew.creditcardapi.models.CreditCard;
 import com.andrew.creditcardapi.repositories.CreditCardRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
