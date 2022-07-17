@@ -50,7 +50,7 @@ class CreditCardServiceImplTest {
         );
         given(creditCardRepository.findByCardNumber(any())).willReturn(Optional.of(creditCard));
 
-        creditCardServiceUnderTest.getCreditCard(cardNumber);
+        creditCardServiceUnderTest.getCreditCardByCardNumber(cardNumber);
 
         verify(creditCardRepository).findByCardNumber(cardNumber);
     }

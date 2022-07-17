@@ -2,37 +2,61 @@ package com.andrew.creditcardapi.web.v1.controllers;
 
 import com.andrew.creditcardapi.dto.CreditCardRequestDto;
 import com.andrew.creditcardapi.dto.CreditCardResponseDto;
+import com.andrew.creditcardapi.exceptions.CardDoesNotExistException;
+import com.andrew.creditcardapi.exceptions.CardNumberExistsExeption;
+import com.andrew.creditcardapi.models.CreditCard;
+import com.andrew.creditcardapi.services.CreditCardService;
 import com.andrew.creditcardapi.web.mappers.CreditCardMapper;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import java.net.URI;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
+@Validated
 @RestController
 @AllArgsConstructor
+@RequiredArgsConstructor
 @RequestMapping(path = "api/v1")
 public class CreditCardController {
 
-//    private CreditCardMapper cardMapper;
-//
-//    @GetMapping(path="/creditCards")
-//    public ResponseEntity<Collection<CreditCardResponseDto>> findAllCreditCards() {
-//
-//        return ResponseEntity.ok().body(// collection of all credit cards);
-//    }
-//
-//
-//    @GetMapping(path="/creditCard/{cardNumber}")
-//    public ResponseEntity<CreditCardResponseDto> findCreditCardByCardNumber(
-//            @PathVariable("cardNumber") String cardNumber) {
-//
-//        return ResponseEntity.ok().body(// found credit card);
-//    }
-//
-//    @PostMapping(path="/creditCard")
-//    public ResponseEntity<CreditCardResponseDto> createCreditCard(@RequestBody CreditCardRequestDto requestDto) {
-//
-//        return ResponseEntity.ok().body(// credit card entity);
-//    }
+    private final CreditCardService creditCardService;
+    private CreditCardMapper cardMapper;
+
+    @GetMapping(path="/creditCards")
+    public ResponseEntity<Collection<CreditCardResponseDto>> findAllCreditCards() {
+
+        List<CreditCardResponseDto> creditCardCollection = creditCardService.getAllCreditCards()
+                .stream()
+                .map(cardMapper::toResponseDto)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok().body(creditCardCollection);
+    }
+
+
+    @GetMapping(path="/creditCard/{cardNumber}")
+    public ResponseEntity<CreditCardResponseDto> findCreditCardByCardNumber(
+            @NotBlank @PathVariable String cardNumber) throws CardDoesNotExistException {
+
+        CreditCardResponseDto cardResponseDto = cardMapper.toResponseDto(creditCardService.getCreditCardByCardNumber(cardNumber));
+        return ResponseEntity.ok().body(cardResponseDto);
+    }
+
+    @PostMapping(path="/creditCard")
+    public ResponseEntity<CreditCardResponseDto> createCreditCard(
+            @Valid @RequestBody CreditCardRequestDto cardRequestDto) throws CardNumberExistsExeption {
+
+        CreditCard creditCard = creditCardService.saveCreditCard(cardMapper.toEntity(cardRequestDto));
+        CreditCardResponseDto cardResponseDto = cardMapper.toResponseDto(creditCard);
+        URI uri = URI.create(ServletUriComponentsBuilder.fromCurrentContextPath().path("/api/v1/creditCard").toUriString());
+        return ResponseEntity.created(uri).body(cardResponseDto);
+    }
 }

@@ -7,7 +7,7 @@ import com.andrew.creditcardapi.models.CreditCard;
 import java.util.Collection;
 
 public interface CreditCardService {
-    CreditCard getCreditCard(String cardNumber) throws CardDoesNotExistException;
+    CreditCard getCreditCardByCardNumber(String cardNumber) throws CardDoesNotExistException;
 
     Collection<CreditCard> getAllCreditCards();
 

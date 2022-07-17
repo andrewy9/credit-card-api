@@ -19,7 +19,7 @@ public class CreditCardServiceImpl implements CreditCardService{
     private final CreditCardRepository creditCardRepository;
 
     @Override
-    public CreditCard getCreditCard(String cardNumber) throws CardDoesNotExistException {
+    public CreditCard getCreditCardByCardNumber(String cardNumber) throws CardDoesNotExistException {
         Optional<CreditCard> creditCardOptional =creditCardRepository.findByCardNumber(cardNumber);
         if (creditCardOptional.isEmpty()) {
             throw new CardDoesNotExistException("Card with provided number does not exist", cardNumber);

@@ -7,7 +7,7 @@ import com.andrew.creditcardapi.models.CreditCard;
 import java.time.LocalDate;
 
 public class CreditCardMapper {
-    public CreditCardResponseDto creditCardResponseDto(CreditCard creditCard) {
+    public CreditCardResponseDto toResponseDto(CreditCard creditCard) {
         Long id = creditCard.getId();
         String fullName = creditCard.getFullName();
         String cardNumber = creditCard.getCardNumber();
