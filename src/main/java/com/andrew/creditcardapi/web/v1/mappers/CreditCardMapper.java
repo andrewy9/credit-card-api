@@ -1,4 +1,4 @@
-package com.andrew.creditcardapi.web.mappers;
+package com.andrew.creditcardapi.web.v1.mappers;
 
 import com.andrew.creditcardapi.dto.CreditCardRequestDto;
 import com.andrew.creditcardapi.dto.CreditCardResponseDto;
