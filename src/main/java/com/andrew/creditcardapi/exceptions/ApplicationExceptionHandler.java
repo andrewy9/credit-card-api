@@ -10,6 +10,7 @@ public class ApplicationExceptionHandler {
 
     @ExceptionHandler(CardNumberExistsExeption.class)
     protected ResponseEntity<Object> handleCardNumberExistsExeption(CardNumberExistsExeption e) {
+        //400 not found
         ApiError apiError = new ApiError(HttpStatus.NOT_FOUND);
         apiError.setMessage(e.getMessage());
         return ResponseEntity.badRequest().body(apiError);
@@ -17,7 +18,8 @@ public class ApplicationExceptionHandler {
 
     @ExceptionHandler(CardDoesNotExistException.class)
     protected ResponseEntity<Object> handleCardDoesNotExistException(CardDoesNotExistException e) {
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND);
+        //409 conflict
+        ApiError apiError = new ApiError(HttpStatus.CONFLICT);
         apiError.setMessage(e.getMessage());
         return ResponseEntity.badRequest().body(apiError);
     }

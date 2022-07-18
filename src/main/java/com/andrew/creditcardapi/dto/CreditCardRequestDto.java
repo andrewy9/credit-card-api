@@ -5,9 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 
 @AllArgsConstructor
@@ -27,7 +25,6 @@ public class CreditCardRequestDto {
     @Pattern(regexp = "^[0-9_]*$")
     private String cvc;
 
-//    @NotBlank
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expiryDate;
 }
