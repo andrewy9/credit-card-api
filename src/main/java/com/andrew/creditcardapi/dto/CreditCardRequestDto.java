@@ -16,18 +16,18 @@ import java.time.LocalDate;
 public class CreditCardRequestDto {
     @NotBlank
     @Size(max = 50, message = "The character count should not exceed 50 ")
-    @Pattern(regexp = "[A-Za-z0-9]")
+    @Pattern(regexp = "^[a-zA-Z0-9_]*$")
     private String fullName;
 
     @NotBlank
-    @Pattern(regexp = "[0-9]")
+    @Pattern(regexp = "^[0-9_]*$")
     private String cardNumber;
 
     @NotBlank
-    @Pattern(regexp = "[0-9]")
+    @Pattern(regexp = "^[0-9_]*$")
     private String cvc;
 
-    @NotBlank
+//    @NotBlank
     @JsonFormat(pattern="yyyy-MM-dd")
     private LocalDate expiryDate;
 }
